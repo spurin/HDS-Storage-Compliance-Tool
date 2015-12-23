@@ -1,0 +1,10 @@
+sqlalchemy=0.9.9
+PyYaml
+simple-crypt
+colorama
+requests
+colorlog
+PyMySQL
+prettytable
+inlinestyler
+xmldataset
