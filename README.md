@@ -1,4 +1,4 @@
-HDS Storage Compliance Tool
+HDS Storage Compliance Tool - James Spurin
 ===================
 The HDS Storage Compliance Tool is a Python utility for ensuring that Hitachi based storage environments conform to desired standards.  
 
