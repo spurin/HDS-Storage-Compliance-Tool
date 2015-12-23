@@ -111,7 +111,7 @@ def hsd_cs_non_paired_rep(session=None, serialNumber='%', **kwargs):
         outerjoin(HDS_CS_REPLICATIONINFO, HDS_CS_STORAGEARRAY.serialNumber == HDS_CS_REPLICATIONINFO.pvolSerialNumber).\
         outerjoin(HDS_CS_LDEV, and_(HDS_CS_LDEV.serialNumber == HDS_CS_REPLICATIONINFO.pvolSerialNumber,
                                     HDS_CS_LDEV.displayDevNum == HDS_CS_REPLICATIONINFO.displayPvolDevNum)).\
-        outerjoin(HDS_CS_STORAGEARRAY_2, HDS_CS_STORAGEARRAY.serialNumber == HDS_CS_REPLICATIONINFO.svolSerialNumber).\
+        outerjoin(HDS_CS_STORAGEARRAY_2, HDS_CS_STORAGEARRAY_2.serialNumber == HDS_CS_REPLICATIONINFO.svolSerialNumber).\
         filter(and_(HDS_CS_REPLICATIONINFO.pvolSerialNumber.like(serialNumber),
                     HDS_CS_REPLICATIONINFO.status != 'Pair',
                     or_(HDS_CS_REPLICATIONINFO.replicationFunction == 'TrueCopySync',
@@ -140,7 +140,7 @@ def hsd_cs_incorrect_rep_path(
         outerjoin(HDS_CS_REPLICATIONINFO, HDS_CS_STORAGEARRAY.serialNumber == HDS_CS_REPLICATIONINFO.pvolSerialNumber).\
         outerjoin(HDS_CS_LDEV, and_(HDS_CS_LDEV.serialNumber == HDS_CS_REPLICATIONINFO.pvolSerialNumber,
                                     HDS_CS_LDEV.displayDevNum == HDS_CS_REPLICATIONINFO.displayPvolDevNum)).\
-        outerjoin(HDS_CS_STORAGEARRAY_2, HDS_CS_STORAGEARRAY.serialNumber == HDS_CS_REPLICATIONINFO.svolSerialNumber).\
+        outerjoin(HDS_CS_STORAGEARRAY_2, HDS_CS_STORAGEARRAY_2.serialNumber == HDS_CS_REPLICATIONINFO.svolSerialNumber).\
         filter(and_(HDS_CS_STORAGEARRAY.serialNumber.like(serialNumber),
                     HDS_CS_REPLICATIONINFO.replicationFunction.like(replicationFunction),
                     HDS_CS_REPLICATIONINFO.remotePathGroupID.like(remotePathGroupID))).all()
@@ -160,7 +160,7 @@ def hsd_cs_rep_different_source_dest(session=None, serialNumber='%', replication
                          label('Remote Path Group', HDS_CS_REPLICATIONINFO.remotePathGroupID),
                          label('Status', HDS_CS_REPLICATIONINFO.status)).\
         outerjoin(HDS_CS_REPLICATIONINFO, HDS_CS_STORAGEARRAY.serialNumber == HDS_CS_REPLICATIONINFO.pvolSerialNumber).\
-        outerjoin(HDS_CS_STORAGEARRAY_2, HDS_CS_STORAGEARRAY.serialNumber == HDS_CS_REPLICATIONINFO.svolSerialNumber).\
+        outerjoin(HDS_CS_STORAGEARRAY_2, HDS_CS_STORAGEARRAY_2.serialNumber == HDS_CS_REPLICATIONINFO.svolSerialNumber).\
         filter(and_(HDS_CS_STORAGEARRAY.serialNumber.like(serialNumber),
                     HDS_CS_REPLICATIONINFO.pvolDevNum != HDS_CS_REPLICATIONINFO.svolDevNum,
                     HDS_CS_REPLICATIONINFO.replicationFunction.like(replicationFunction))).all()
