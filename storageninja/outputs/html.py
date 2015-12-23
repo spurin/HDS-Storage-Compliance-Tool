@@ -1,4 +1,3 @@
-from inlinestyler.utils import inline_css
 from storageninja.utilities.prettytable_wrapper import text_table_from_sqlalchemy_query, text_table_from_array_dict
 
 class OutputClass(object):
