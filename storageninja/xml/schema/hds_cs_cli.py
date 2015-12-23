@@ -2,8 +2,6 @@
 #   Module  : HDS xmlschema
 #
 #   Purpose : XML Schema for use with xmldataset
-#
-#   This software is Copyright (c) 2014 by James Spurin
 # ------------------------------------------------------------------------------
 
 # Removed as duplicate of controllerVersion and not in cli
